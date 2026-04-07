@@ -38,20 +38,14 @@ app = FastAPI(
     version="1.0.0",
 )
 
-_ALLOWED_ORIGINS = [
-    "http://localhost:3000",                            # local dev
-    "http://frontend:3000",                             # Docker compose
-    "https://mental-health-wellbeing.vercel.app",       # Vercel production
-]
-
-# Allow any additional origin set via ALLOWED_ORIGIN env var (e.g. preview deploys)
-_extra_origin = os.getenv("ALLOWED_ORIGIN", "").strip()
-if _extra_origin:
-    _ALLOWED_ORIGINS.append(_extra_origin)
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_ALLOWED_ORIGINS,
+    allow_origins=[
+        "http://localhost:3000",     # local dev
+        "http://frontend:3000",      # Docker compose
+    ],
+    # Covers all Vercel preview + production URLs for this project
+    allow_origin_regex=r"https://mental-health-wellbeing.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
