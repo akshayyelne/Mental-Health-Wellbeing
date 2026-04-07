@@ -38,12 +38,21 @@ app = FastAPI(
     version="1.0.0",
 )
 
+_ALLOWED_ORIGINS = [
+    "http://localhost:3000",                            # local dev
+    "http://frontend:3000",                             # Docker compose
+    "https://mental-health-wellbeing.vercel.app",       # Vercel production
+]
+
+# Allow any additional origin set via ALLOWED_ORIGIN env var (e.g. preview deploys)
+_extra_origin = os.getenv("ALLOWED_ORIGIN", "").strip()
+if _extra_origin:
+    _ALLOWED_ORIGINS.append(_extra_origin)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",   # Next.js dev server
-        "http://frontend:3000",    # Docker service name
-    ],
+    allow_origins=_ALLOWED_ORIGINS,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -569,3 +578,11 @@ async def match_retreats(req: RetreatMatchRequest) -> RetreatMatchResponse:
         raise HTTPException(status_code=502, detail="LLM returned no valid retreat IDs.")
 
     return RetreatMatchResponse(matches=matches)
+
+
+# ── Entry point (Render / local) ──────────────────────────────────────────────
+if __name__ == "__main__":
+    import uvicorn
+
+    port = int(os.getenv("PORT", "8000"))
+    uvicorn.run("api:app", host="0.0.0.0", port=port)
