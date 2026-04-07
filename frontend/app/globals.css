@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ──────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --sage:      #7D9D9C;
+  --sage-dark: #6a8a89;
+  --cream:     #FAF9F6;
+  --mist:      #F0F4F4;
+  --ink:       #2C3333;
+  --soul:      #7B54BD;
+  --soul-dark: #6340a8;
+}
+
+body {
+  /* No background-color here — the landing page owns its own full-bleed bg */
+  color: var(--ink);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ─────────────────────────────────────────────────────────────── */
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* ── Glassmorphism card ─────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+}
+
+.glass-dark {
+  background: rgba(20, 14, 35, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+}
+
+.glass-cream {
+  background: rgba(250, 249, 246, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+}
+
+/* ── Nature background ──────────────────────────────────────────────────────── */
+.nature-bg {
+  /*
+   * Layer order — FIRST listed is TOP (painted last, sits in front):
+   *  1. Warm tint gradient (semi-transparent, lets image show through)
+   *  2. nature-bg.png  ← the photograph (confirmed at /nature-bg.png)
+   *  3. nature-bg.svg  ← SVG fallback
+   *
+   * !important on all background-* forces this over any Tailwind utility
+   * that lands on the same element via className.
+   */
+  background-color:    #B0A0C4                        !important;
+  background-image:
+    radial-gradient(ellipse 55% 40% at 82% 15%, rgba(240, 210, 175, 0.28) 0%, transparent 55%),
+    url('/nature-bg.png'),
+    url('/nature-bg.svg')                             !important;
+  background-size:     cover,         cover,         cover !important;
+  background-position: center center, center center, center center !important;
+  background-repeat:   no-repeat,     no-repeat,     no-repeat !important;
+  min-height: 100vh;
+}
+
+/* ── Form components (check-in page) ───────────────────────────────────────── */
+@layer components {
+  .card {
+    @apply bg-mist rounded-[12px] border border-[#d0dcdc] p-5;
+  }
+  .input {
+    @apply w-full rounded-xl border border-[#c8d8d8] bg-white/80 px-4 py-2.5
+           focus:outline-none focus:ring-2 focus:ring-sage/40 focus:border-sage
+           placeholder:text-gray-400 text-ink transition-colors;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink/75 mb-1.5;
+  }
+  .btn-soul {
+    @apply bg-[#7B54BD] hover:bg-[#6340a8] text-white font-semibold
+           px-7 py-2.5 rounded-full transition-all duration-200
+           shadow-lg shadow-[#7B54BD]/25 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply bg-white/15 hover:bg-white/25 text-white font-medium
+           px-7 py-2.5 rounded-full border border-white/40
+           backdrop-blur-sm transition-all duration-200;
+  }
+  .btn-sage {
+    @apply bg-sage hover:bg-sage-dark text-white font-semibold
+           px-8 py-2.5 rounded-full transition-colors
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+}
+
+/* ── Prose overrides for markdown output ────────────────────────────────────── */
+.prose h2 { @apply text-lg font-semibold text-ink mt-4 mb-2; }
+.prose h3 { @apply text-base font-semibold text-ink/80 mt-3 mb-1; }
+.prose p  { @apply text-sm text-ink/80 leading-relaxed mb-2; }
+.prose li { @apply text-sm text-ink/80 leading-relaxed; }
+.prose strong { @apply text-ink font-semibold; }
+
+/* ── Custom range slider ────────────────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: #d0dcdc;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--sage);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c8d8d8; border-radius: 3px; }

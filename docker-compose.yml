@@ -1,0 +1,75 @@
+version: "3.9"
+
+networks:
+  internal:
+    driver: bridge
+    internal: true   # MCP server — no outbound internet
+  public:
+    driver: bridge   # backend + frontend reach external APIs
+
+
+services:
+
+  # ── MCP Tool Server ─────────────────────────────────────────────────────────
+  mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    container_name: mcp_wellbeing_server
+    restart: unless-stopped
+    networks:
+      - internal        # never exposed to host or internet
+
+  # ── FastAPI Backend ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mental_wellbeing_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    networks:
+      - internal        # can reach MCP
+      - public          # can reach Supabase + Groq APIs
+    env_file:
+      - .env            # GROQ_API_KEY, SUPABASE_DB_URI, USE_MCP
+    environment:
+      MCP_SERVER_HOST: mcp
+      USE_MCP: "true"
+    depends_on:
+      - mcp
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # ── SIT: run integration tests instead of the API server ────────────────
+    # docker compose run --rm backend pytest test_integration.py -v
+
+  # ── Next.js Frontend ─────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # NEXT_PUBLIC_* vars must be present at BUILD time (Next.js bakes them
+        # into the JS bundle). The browser calls this URL directly, so it must
+        # be the host-visible address, not the Docker service name.
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    container_name: mental_wellbeing_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - public
+    environment:
+      # Also set at runtime for SSR / server components if needed
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    volumes:
+      # Mount host public/ into the container so images can be swapped
+      # without a full docker compose up --build
+      - ./frontend/public:/app/public:ro
+    depends_on:
+      - backend

@@ -1,0 +1,17 @@
+# ── MCP Wellbeing Tool Server ────────────────────────────────────────────────
+# Minimal image — only the mcp package and the server script.
+# This container is NOT exposed to the public internet; it is only reachable
+# from the streamlit service over the internal Docker network.
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.mcp.txt .
+RUN pip install --no-cache-dir -r requirements.mcp.txt
+
+COPY mcp_wellbeing_server.py .
+
+# MCP stdio transport: the process reads from stdin / writes to stdout.
+# docker-compose connects the streamlit container to this via the internal
+# network; the server is never bound to a host port.
+CMD ["python", "mcp_wellbeing_server.py"]

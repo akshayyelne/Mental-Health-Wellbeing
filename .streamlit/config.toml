@@ -1,0 +1,6 @@
+[theme]
+primaryColor        = "#7D9D9C"   # Muted Sage
+backgroundColor     = "#FAF9F6"   # Off-white / Cream
+secondaryBackgroundColor = "#F0F4F4"
+textColor           = "#2C3333"
+font                = "sans serif"

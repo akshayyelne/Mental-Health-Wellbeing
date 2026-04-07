@@ -1,0 +1,56 @@
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+.Python
+
+# ── Node / Next.js ────────────────────────────────────────────────────────────
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+*.tsbuildinfo
+.npm
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+# (keep docker-compose.yml committed, ignore local overrides)
+docker-compose.override.yml
+
+# ── Database & local state ────────────────────────────────────────────────────
+*.sqlite
+*.db
+*.db-shm
+*.db-wal
+
+# ── OS & editor artefacts ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Test artefacts ────────────────────────────────────────────────────────────
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
