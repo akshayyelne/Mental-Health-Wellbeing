@@ -2,8 +2,8 @@
 
 > A proactive, agentic mental wellness platform built with LangGraph, FastAPI, and Next.js.
 
-**Soulora bridges evidence-based wellbeing practices with agentic AI — providing personalised support plans, micro-rituals, retreat matchmaking, and real-time emotional reflection, all wrapped in a premium glassmorphic UI.
-Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity support.******
+Soulora bridges evidence-based wellbeing practices with agentic AI — providing personalised support plans, micro-rituals, retreat matchmaking, and real-time emotional reflection, all wrapped in a premium glassmorphic UI.
+Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity support.
 ---
 
 ## ✨ Features
