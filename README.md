@@ -5,7 +5,10 @@
 > Soulora bridges evidence-based wellbeing practices with agentic AI — providing personalised support plans, micro-rituals, retreat matchmaking, and real-time emotional reflection, all wrapped in a premium glassmorphic UI.
 Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity support.
 ---
-Product Demo : Product Demo/SouloraDemo.mp4
+**Product Demo :** 
+
+https://github.com/akshayyelne/Mental-Health-Wellbeing/blob/main/Product%20Demo/SouloraDemo.mp4
+
 ## ✨ Features
 
 ### 🧘 Daily Check-in & AI Support Plans
