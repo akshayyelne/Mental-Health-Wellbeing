@@ -1,10 +1,39 @@
 # Soulora — AI Mental Wellbeing Sanctuary
 
-> A proactive, agentic mental wellness platform built with LangGraph, FastAPI, and Next.js.
+## 🚨 Problem Statement
 
-> Soulora bridges evidence-based wellbeing practices with agentic AI — providing personalised support plans, micro-rituals, retreat matchmaking, and real-time emotional reflection, all wrapped in a premium glassmorphic UI.
-Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity support.
+Mental health support remains inaccessible for the majority of people. Long waitlists, high therapy costs, and the stigma of asking for help mean that most individuals navigate anxiety, burnout, and emotional distress entirely alone — often with no structured support until a crisis point is reached.
+
+Existing wellness apps offer generic content (meditation timers, mood trackers) that fails to respond to the individual's actual emotional state. They are reactive at best, and they do not adapt. A person experiencing burnout on three hours of sleep needs fundamentally different support than someone managing mild daily stress — yet most apps treat them identically.
+
 ---
+
+## 📉 Impact
+
+- **1 in 5 adults** experiences a mental health condition each year, yet fewer than half receive any form of care *(WHO, 2022)*
+- The global cost of mental ill-health in lost productivity exceeds **$1 trillion per year**
+- Average wait time to see a therapist in the US is **25 days**; in the UK it exceeds **18 weeks** on the NHS
+- **72% of people** who could benefit from mental health support report cost or accessibility as their primary barrier
+- Burnout is now the leading cause of employee disengagement — affecting an estimated **77% of workers** at some point in their career
+
+The gap between when someone needs support and when they can access it is measured in weeks or months. That gap causes real harm.
+
+---
+
+## 💡 Solution
+
+Soulora is a proactive, agentic mental wellness platform that meets users where they are — in the moment, at any hour, with support that actually responds to how they feel right now.
+
+Rather than static content, Soulora runs a **LangGraph multi-agent pipeline** that reads the user's emotional state, sleep quality, stress level, and recent life changes — then produces a personalised risk assessment, a step-by-step action plan, and a long-term support strategy in seconds.
+
+Every feature adapts to the individual:
+
+- **Daily Check-in** reads emotional nuance in free text and generates a tailored support plan — not a template
+- **Wellness Rituals** are generated fresh for the user's current energy, environment, and available time
+- **Retreat Matchmaker** listens to how someone feels and connects them to a sanctuary that matches that feeling
+- **AI Guided Intention** surfaces a proactive morning nudge using the user's last check-in context — before they even ask
+- **Breath Synchronizer** and ambient soundscapes provide immediate, in-the-moment nervous system regulation
+
 **Product Demo :** 
 
 <div align="center">
@@ -19,6 +48,7 @@ Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity
     Your browser does not support the video tag.
   </video>
 </div>
+
 
 
 ## ✨ Features
