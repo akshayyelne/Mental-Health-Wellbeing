@@ -7,7 +7,18 @@ Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity
 ---
 **Product Demo :** 
 
-https://github.com/akshayyelne/Mental-Health-Wellbeing/blob/main/Product%20Demo/SouloraDemo.mp4
+<div align="center">
+  <video src="YOUR_VIDEO_URL_HERE.mp4" 
+    controls 
+    muted 
+    loop 
+    autoplay 
+    playsinline 
+    width="100%" 
+    style="max-width: 800px; border-radius: 10px;">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 ## ✨ Features
 
