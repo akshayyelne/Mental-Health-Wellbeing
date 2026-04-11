@@ -14,11 +14,12 @@ Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity
     loop 
     autoplay 
     playsinline 
-    width="100%" 
-    style="max-width: 800px; border-radius: 10px;">
+    width="500" 
+    style="max-width: 500px; border-radius: 10px; border: 1px solid #30363d;">
     Your browser does not support the video tag.
   </video>
 </div>
+
 
 ## ✨ Features
 
