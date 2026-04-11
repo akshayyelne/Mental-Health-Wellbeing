@@ -8,7 +8,7 @@ Soulora utilizes a specialized team of multi - AI agents to ensure high-fidelity
 **Product Demo :** 
 
 <div align="center">
-  <video src="YOUR_VIDEO_URL_HERE.mp4" 
+  <video src=SouloraDemo.mp4" 
     controls 
     muted 
     loop 
