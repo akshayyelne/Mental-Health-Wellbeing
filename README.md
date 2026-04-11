@@ -1,6 +1,6 @@
 # Soulora — AI Mental Wellbeing Sanctuary
 
-## 🚨 Problem Statement
+## Problem Statement
 
 Mental health support remains inaccessible for the majority of people. Long waitlists, high therapy costs, and the stigma of asking for help mean that most individuals navigate anxiety, burnout, and emotional distress entirely alone — often with no structured support until a crisis point is reached.
 
@@ -8,7 +8,7 @@ Existing wellness apps offer generic content (meditation timers, mood trackers) 
 
 ---
 
-## 📉 Impact
+## Impact
 
 - **1 in 5 adults** experiences a mental health condition each year, yet fewer than half receive any form of care *(WHO, 2022)*
 - The global cost of mental ill-health in lost productivity exceeds **$1 trillion per year**
@@ -20,7 +20,7 @@ The gap between when someone needs support and when they can access it is measur
 
 ---
 
-## 💡 Solution
+## Solution
 
 Soulora is a proactive, agentic mental wellness platform that meets users where they are — in the moment, at any hour, with support that actually responds to how they feel right now.
 
@@ -51,7 +51,7 @@ Every feature adapts to the individual:
 
 
 
-## ✨ Features
+## Features
 
 ### 🧘 Daily Check-in & AI Support Plans
 A 3-step conversational check-in (emotional state → life changes → symptoms) that feeds a LangGraph multi-agent pipeline. The pipeline produces a personalised risk assessment, action plan, and long-term support strategy. A real-time **Reflection card** surfaces a compassionate summary of the user's emotional state as they type.
@@ -73,7 +73,7 @@ Glassmorphic static pages with framer-motion stagger animations, outcome-first t
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
